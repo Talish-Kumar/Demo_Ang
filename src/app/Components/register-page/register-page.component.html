@@ -1,0 +1,28 @@
+<mat-card class="centerhv">
+    <mat-card-title>User Register</mat-card-title>
+    <mat-card-subtitle>Enter your information</mat-card-subtitle>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" [(ngModel)]="user.firstName">
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" [(ngModel)]="user.lastName">
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" [(ngModel)]="user.username">
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" [(ngModel)]="user.password">
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-button (click)="register()">Register</button>
+      <button mat-button (click)="changeRegisterFlag()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+  

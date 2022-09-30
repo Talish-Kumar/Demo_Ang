@@ -1,0 +1,28 @@
+/* Centering */
+.centerhv {
+    position: absolute; /* Position this element relative to the entire page, not based on what's around it */
+    top: 50%; /* Move the top of this element to half way down the page */
+    left: 50%; /* Move the left border of the element to half way horizontally in the page */
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Centering */
+.centert {
+    position: absolute; /* Position this element relative to the entire page, not based on what's around it */
+    top: 15%;
+    left: 46.50%;
+}
+
+/* For Buttons */
+.block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem; /* For spacing */
+}
+
+/* Styling for the card container */
+.card {
+    width: 20rem;
+    height: 20rem;
+}
