@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-title>ID: {{ user.id }}</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        placeholder="First Name"
+        [(ngModel)]="userBeingEdited.firstName"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        placeholder="Last Name"
+        [(ngModel)]="userBeingEdited.lastName"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        placeholder="Username"
+        [(ngModel)]="userBeingEdited.username"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Password"
+        [(ngModel)]="userBeingEdited.password"
+      />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions (click)="applyEdit()">
+    <button mat-button>
+      <mat-icon>check_circle</mat-icon>
+    </button>
+    <button mat-button (click)="onCancel()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

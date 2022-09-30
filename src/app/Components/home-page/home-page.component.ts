@@ -10,12 +10,17 @@ import { UiService } from 'src/app/Services/ui.service';
 export class HomePageComponent implements OnInit {
 
   constructor(private uiService: UiService) {
-    this.uiService.getAllUsers().subscribe((users: IUser[]) => {
-      this.users = users;
+    this.uiService.getAllUsers();
+
+    this.uiService.returnUserEdit().subscribe((id: number | undefined) => {
+      this.userToEditID = id;
     });
    }
 
   ngOnInit(): void {
+    this.uiService.returnUsers().subscribe((users: IUser[]) => {
+      this.users = users;
+    });
   }
   
   @Output() logoutFlag = new EventEmitter<boolean>();
@@ -26,6 +31,8 @@ export class HomePageComponent implements OnInit {
     username: '',
     password: '',
   };
+
+  userToEditID: number | undefined;
 
   users: IUser[] = [];
 

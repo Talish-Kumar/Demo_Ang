@@ -17,13 +17,17 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './Components/register-page/register-page.component';
+import { UserComponent } from './Components/user/user.component';
+import { EditUserComponent } from './Components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    UserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

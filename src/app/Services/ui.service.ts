@@ -13,6 +13,8 @@ export class UiService {
   // Subject to keep track and notify subscribers of the current user
   currentUserSubject: Subject<IUser | undefined> = new Subject<IUser | undefined>();
   userFoundSubject: Subject<boolean | undefined> = new Subject<boolean | undefined>();
+  usersSubject: Subject<IUser[]> = new Subject<IUser[]>();
+  userEditSubject: Subject<number | undefined> = new Subject<number | undefined>();
 
   // Login
   Login(username: string, password: string) {
@@ -79,12 +81,36 @@ export class UiService {
   }
 
   // Get all users
-  getAllUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>('http://localhost:3000/users');
+  getAllUsers(): void {
+    this.http.get<IUser[]>('http://localhost:3000/users').subscribe((users: IUser[]) => {
+      this.usersSubject.next(users);
+    });
+  }
+  returnUsers(): Observable<IUser[]> {
+    return this.usersSubject.asObservable();
   }
 
   // Delete a user
-  deleteUser(id: number | undefined): Observable<IUser> {
-    return this.http.delete<IUser>(`http://localhost:3000/users/${id}`);
+  deleteUser(id: number | undefined): void {
+    this.http.delete<IUser>(`http://localhost:3000/users/${id}`).subscribe(() => {
+      this.getAllUsers();
+    });
+  }
+
+  // Edit a user
+  startEditing(id: number | undefined): void {
+    this.userEditSubject.next(id);
+  }
+  returnUserEdit(): Observable<number | undefined> {
+    return this.userEditSubject.asObservable();
+  }
+  cancelEdit(): void {
+    this.userEditSubject.next(undefined);
+  }
+  applyEdit(user: IUser): void {
+    this.http.put<IUser>(`http://localhost:3000/users/${user.id}`, user).subscribe(() => {
+      this.getAllUsers();
+      this.userEditSubject.next(undefined);
+    });
   }
 }
