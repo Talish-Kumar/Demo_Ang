@@ -20,13 +20,6 @@
       "username": "ab",
       "password": "pass",
       "id": 2
-    },
-    {
-      "firstName": "cad",
-      "lastName": "dad",
-      "username": "cd",
-      "password": "pass",
-      "id": 3
     }
   ]
 }

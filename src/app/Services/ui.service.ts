@@ -23,8 +23,8 @@ export class UiService {
         this.userFoundSubject.next(true);
         this.currentUserSubject.next(user);
       } else {
-        this.currentUserSubject.next(user);
         this.userFoundSubject.next(false);
+        this.currentUserSubject.next(user);
       }
     });
   }
